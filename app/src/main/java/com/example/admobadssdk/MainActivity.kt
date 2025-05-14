@@ -29,7 +29,6 @@ class MainActivity : ComponentActivity() {
                 AdSdkInitializer.handleConsent(this) { consentGiven ->
                     Log.d("TAG", "Consent given: $consentGiven")
                 }
-
             }
         }
     }
