@@ -23,7 +23,6 @@ fun RewardScreen() {
             .padding(horizontal = 16.dp, vertical = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
             text = "Showing Reward Ad",
             style = MaterialTheme.typography.titleLarge,
