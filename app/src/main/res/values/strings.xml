@@ -3,5 +3,15 @@
     <string name="showing_banner_ad">Showing Banner Ad</string>
     <string name="showing_adaptive_banner_ad">Showing Adaptive Banner Ad</string>
     <string name="showing_collapsible_banner_ad">Showing Collapsible Banner Ad</string>
+
+    <string name="show_banner_ad">Show Banner Ad</string>
+    <string name="show_adaptive_banner_ad">Show Adaptive Banner Ad</string>
+    <string name="show_interstitial_banner_ad">Show Interstitial Ad</string>
+    <string name="show_reward_banner_ad">Show Reward Ad</string>
+    <string name="show_reward_interstitial_banner_ad">Show Reward Interstitial Ad</string>
+    <string name="show_native_banner_ad">Show Native Ad</string>
+    <string name="show_recycler_naive_banner_ad">Show Recycler Native Ad</string>
+    <string name="show_collapsible_banner_ad">Show Collapsible Banner</string>
+
     <string name="showing_native_ad">Showing Native Ad</string>
 </resources>
