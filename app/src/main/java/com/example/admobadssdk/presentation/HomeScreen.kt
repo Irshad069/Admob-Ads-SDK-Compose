@@ -16,7 +16,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun HomeScreen( onBannerClick: () -> Unit) {
+fun HomeScreen(
+    onBannerClick: () -> Unit = {},
+    onAdaptiveBannerClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,7 +48,7 @@ fun HomeScreen( onBannerClick: () -> Unit) {
         Spacer(modifier = Modifier.height(12.dp))
 
         Button(
-            onClick = {  },
+            onClick = { onAdaptiveBannerClick() },
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()

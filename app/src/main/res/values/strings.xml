@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AdmobAdsSDK</string>
     <string name="showing_banner_ad">Showing Banner Ad</string>
+    <string name="showing_adaptive_banner_ad">Showing Adaptive Banner Ad</string>
 </resources>

@@ -11,22 +11,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.admobadssdk.R
-import com.example.sdkads.fixedsizebanner.BannerAdView
+import com.example.sdkads.adaptivebanner.AdaptiveBannerAdView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BannerScreen() {
+fun AdaptiveBannerScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
 
         TopAppBar(
-            title = { Text(text = stringResource(R.string.showing_banner_ad)) }
+            title = { Text(text = stringResource(R.string.showing_adaptive_banner_ad)) }
         )
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
         ) {
-            BannerAdView()
+            AdaptiveBannerAdView()
         }
     }
 }
