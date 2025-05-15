@@ -11,6 +11,8 @@ import com.example.admobadssdk.presentation.BannerScreen
 import com.example.admobadssdk.presentation.CollapsibleBannerScreen
 import com.example.admobadssdk.presentation.HomeScreen
 import com.example.admobadssdk.presentation.InterstitialScreen
+import com.example.admobadssdk.presentation.RewardInterstitialScreen
+import com.example.admobadssdk.presentation.RewardScreen
 
 
 @Composable
@@ -29,7 +31,9 @@ fun AppNavigation() {
                     onBannerClick = { navController.navigate(Screen.BannerDisplay) },
                     onAdaptiveBannerClick = { navController.navigate(Screen.AdaptiveBannerDisplay) },
                     onCollapsibleBannerClick = { navController.navigate(Screen.CollapsibleBannerDisplay) },
-                    onInterstitialBannerClick = { navController.navigate(Screen.InterstitialBannerDisplay) }
+                    onInterstitialBannerClick = { navController.navigate(Screen.InterstitialBannerDisplay) },
+                    onRewardBannerClick = { navController.navigate(Screen.RewardBannerDisplay) },
+                    onRewardInterstitialBannerClick = { navController.navigate(Screen.RewardInterstitialBannerDisplay) }
                 )
             }
 
@@ -44,6 +48,12 @@ fun AppNavigation() {
             }
             composable<Screen.InterstitialBannerDisplay> {
                 InterstitialScreen()
+            }
+            composable<Screen.RewardBannerDisplay> {
+                RewardScreen()
+            }
+            composable<Screen.RewardInterstitialBannerDisplay> {
+                RewardInterstitialScreen()
             }
         }
     }

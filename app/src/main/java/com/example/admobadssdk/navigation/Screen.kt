@@ -20,4 +20,12 @@ sealed class Screen {
     @Serializable
     data object InterstitialBannerDisplay: Screen()
 
+
+    @Serializable
+    data object RewardBannerDisplay: Screen()
+
+  @Serializable
+    data object RewardInterstitialBannerDisplay: Screen()
+
+
 }

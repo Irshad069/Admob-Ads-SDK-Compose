@@ -13,14 +13,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 
 @Composable
 fun HomeScreen(
     onBannerClick: () -> Unit = {},
     onAdaptiveBannerClick: () -> Unit = {},
     onCollapsibleBannerClick: () -> Unit = {},
-    onInterstitialBannerClick :() -> Unit ={}
+    onInterstitialBannerClick: () -> Unit = {},
+    onRewardBannerClick: () -> Unit = {},
+    onRewardInterstitialBannerClick: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -44,7 +45,7 @@ fun HomeScreen(
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
         ) {
-            Text(text =  "Show Banner Ad" )
+            Text(text = "Show Banner Ad")
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -55,7 +56,7 @@ fun HomeScreen(
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
         ) {
-            Text(text =  "Show Adaptive Banner Ad" )
+            Text(text = "Show Adaptive Banner Ad")
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -69,10 +70,33 @@ fun HomeScreen(
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
         ) {
-            Text(text =  "Show Interstitial Ad" )
+            Text(text = "Show Interstitial Ad")
         }
 
         Spacer(modifier = Modifier.height(12.dp))
+
+        Button(
+            onClick = { onRewardBannerClick() },
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .fillMaxWidth()
+        ) {
+            Text(text = "Show Reward Ad")
+        }
+        Spacer(modifier = Modifier.height(12.dp))
+
+
+        Button(
+            onClick = { onRewardInterstitialBannerClick() },
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .fillMaxWidth()
+        ) {
+            Text(text = "Show Reward Interstitial Ad")
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
 
         Button(
             onClick = { },
@@ -80,41 +104,18 @@ fun HomeScreen(
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
         ) {
-            Text(text =  "Show Reward Ad" )
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-
-
-        Button(
-            onClick = {  },
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
-                .fillMaxWidth()
-        ) {
-            Text(text =  "Show Reward Interstitial Ad" )
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-
-        Button(
-            onClick = { },
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
-                .fillMaxWidth()
-        ) {
-            Text(text =    "Show Recycler Native Ad" )
+            Text(text = "Show Recycler Native Ad")
         }
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Button(
-            onClick = { onCollapsibleBannerClick()},
+            onClick = { onCollapsibleBannerClick() },
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
         ) {
-            Text(text =  "Show Collapsible Banner" )
+            Text(text = "Show Collapsible Banner")
         }
 
     }
