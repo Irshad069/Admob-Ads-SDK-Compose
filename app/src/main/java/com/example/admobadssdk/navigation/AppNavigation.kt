@@ -18,6 +18,7 @@ fun AppNavigation() {
     val navController = rememberNavController()
 
     Surface(color = MaterialTheme.colorScheme.background) {
+
         NavHost(
             navController = navController,
             startDestination = Screen.HomeDisplay
