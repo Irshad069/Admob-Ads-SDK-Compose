@@ -3,4 +3,5 @@
     <string name="showing_banner_ad">Showing Banner Ad</string>
     <string name="showing_adaptive_banner_ad">Showing Adaptive Banner Ad</string>
     <string name="showing_collapsible_banner_ad">Showing Collapsible Banner Ad</string>
+    <string name="showing_native_ad">Showing Native Ad</string>
 </resources>

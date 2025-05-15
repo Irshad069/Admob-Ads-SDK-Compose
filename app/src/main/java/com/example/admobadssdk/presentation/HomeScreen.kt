@@ -21,7 +21,8 @@ fun HomeScreen(
     onCollapsibleBannerClick: () -> Unit = {},
     onInterstitialBannerClick: () -> Unit = {},
     onRewardBannerClick: () -> Unit = {},
-    onRewardInterstitialBannerClick: () -> Unit = {}
+    onRewardInterstitialBannerClick: () -> Unit = {},
+    onNativeAdClick: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -116,6 +117,17 @@ fun HomeScreen(
                 .fillMaxWidth()
         ) {
             Text(text = "Show Collapsible Banner")
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Button(
+            onClick = { onNativeAdClick()},
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .fillMaxWidth()
+        ) {
+            Text(text = "Show Native Ad")
         }
 
     }

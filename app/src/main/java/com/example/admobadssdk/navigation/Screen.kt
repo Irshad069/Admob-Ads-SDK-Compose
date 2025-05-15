@@ -6,26 +6,27 @@ import kotlinx.serialization.Serializable
 sealed class Screen {
 
     @Serializable
-    data object HomeDisplay: Screen()
+    data object HomeDisplay : Screen()
 
     @Serializable
-    data object BannerDisplay: Screen()
+    data object BannerDisplay : Screen()
 
     @Serializable
-    data object AdaptiveBannerDisplay: Screen()
+    data object AdaptiveBannerDisplay : Screen()
 
     @Serializable
-    data object CollapsibleBannerDisplay: Screen()
+    data object CollapsibleBannerDisplay : Screen()
 
     @Serializable
-    data object InterstitialBannerDisplay: Screen()
-
+    data object InterstitialBannerDisplay : Screen()
 
     @Serializable
-    data object RewardBannerDisplay: Screen()
+    data object RewardBannerDisplay : Screen()
 
-  @Serializable
-    data object RewardInterstitialBannerDisplay: Screen()
+    @Serializable
+    data object RewardInterstitialBannerDisplay : Screen()
 
+    @Serializable
+    data object NativeAdDisplay : Screen()
 
 }
