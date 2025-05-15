@@ -20,6 +20,7 @@ fun HomeScreen(
     onBannerClick: () -> Unit = {},
     onAdaptiveBannerClick: () -> Unit = {},
     onCollapsibleBannerClick: () -> Unit = {},
+    onInterstitialBannerClick :() -> Unit ={}
 ) {
     Column(
         modifier = Modifier
@@ -61,7 +62,9 @@ fun HomeScreen(
 
 
         Button(
-            onClick = {  },
+            onClick = {
+                onInterstitialBannerClick()
+            },
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
