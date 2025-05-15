@@ -14,4 +14,7 @@ sealed class Screen {
     @Serializable
     data object AdaptiveBannerDisplay: Screen()
 
+    @Serializable
+    data object CollapsibleBannerDisplay: Screen()
+
 }

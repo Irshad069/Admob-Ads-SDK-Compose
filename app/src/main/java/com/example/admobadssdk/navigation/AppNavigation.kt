@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.admobadssdk.presentation.AdaptiveBannerScreen
 import com.example.admobadssdk.presentation.BannerScreen
+import com.example.admobadssdk.presentation.CollapsibleBannerScreen
 import com.example.admobadssdk.presentation.HomeScreen
 
 
@@ -24,7 +25,8 @@ fun AppNavigation() {
             composable<Screen.HomeDisplay> {
                 HomeScreen(
                     onBannerClick = { navController.navigate(Screen.BannerDisplay) },
-                    onAdaptiveBannerClick = { navController.navigate(Screen.AdaptiveBannerDisplay) }
+                    onAdaptiveBannerClick = { navController.navigate(Screen.AdaptiveBannerDisplay) },
+                    onCollapsibleBannerClick = { navController.navigate(Screen.CollapsibleBannerDisplay) }
                 )
             }
             composable<Screen.BannerDisplay> {
@@ -32,6 +34,9 @@ fun AppNavigation() {
             }
             composable<Screen.AdaptiveBannerDisplay> {
                 AdaptiveBannerScreen()
+            }
+            composable<Screen.CollapsibleBannerDisplay> {
+                CollapsibleBannerScreen()
             }
         }
     }

@@ -19,6 +19,7 @@ import androidx.navigation.NavController
 fun HomeScreen(
     onBannerClick: () -> Unit = {},
     onAdaptiveBannerClick: () -> Unit = {},
+    onCollapsibleBannerClick: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -105,7 +106,7 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         Button(
-            onClick = { },
+            onClick = { onCollapsibleBannerClick()},
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 6.dp)
                 .fillMaxWidth()
