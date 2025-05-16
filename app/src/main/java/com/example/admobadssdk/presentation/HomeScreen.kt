@@ -7,13 +7,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.admobadssdk.R
+import com.example.admobadssdk.components.AppBar
+import com.example.admobadssdk.components.BaseButton
 
 @Composable
 fun HomeScreen(
@@ -26,152 +29,53 @@ fun HomeScreen(
     onNativeAdClick: () -> Unit = {},
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 16.dp),
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top
     ) {
 
-        Button(
-            onClick = { onBannerClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.showing_banner_ad)
-            )
-        }
+        AppBar(title = stringResource(R.string.home_screen))
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
-        Button(
-            onClick = { onAdaptiveBannerClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.showing_adaptive_banner_ad)
-            )
-        }
+        BaseButton(
+            text = stringResource(R.string.showing_banner_ad),
+            onClick = onBannerClick
+        )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        BaseButton(
+            text = stringResource(R.string.showing_adaptive_banner_ad),
+            onClick = onAdaptiveBannerClick
+        )
 
-        Button(
-            onClick = {
-                onInterstitialBannerClick()
-            },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.show_interstitial_banner_ad)
-            )
-        }
+        BaseButton(
+            text = stringResource(R.string.show_interstitial_ad),
+            onClick = onInterstitialBannerClick
+        )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        BaseButton(
+            text = stringResource(R.string.show_reward_ad),
+            onClick = onRewardBannerClick
+        )
 
-        Button(
-            onClick = { onRewardBannerClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.show_reward_banner_ad)
-            )
-        }
-        Spacer(modifier = Modifier.height(12.dp))
+        BaseButton(
+            text = stringResource(R.string.show_reward_interstitial_ad),
+            onClick = onRewardInterstitialBannerClick
+        )
 
-        Button(
-            onClick = { onRewardInterstitialBannerClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.show_reward_interstitial_banner_ad)
-            )
-        }
+        BaseButton(
+            text = stringResource(R.string.show_lv_native_ad),
+            onClick = {}
+        )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        BaseButton(
+            text = stringResource(R.string.show_collapsible_banner_ad),
+            onClick = onCollapsibleBannerClick
+        )
 
-        Button(
-            onClick = { },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.show_native_banner_ad)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Button(
-            onClick = { },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.show_recycler_naive_banner_ad)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Button(
-            onClick = { onCollapsibleBannerClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.showing_collapsible_banner_ad)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Button(
-            onClick = { onNativeAdClick() },
-            modifier = Modifier
-                .padding(
-                    horizontal = 16.dp,
-                    vertical = 6.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Text(text = "Show Native Ad")
-        }
+        BaseButton(
+            text = stringResource(R.string.show_native_ad),
+            onClick = onNativeAdClick
+        )
 
     }
 }
