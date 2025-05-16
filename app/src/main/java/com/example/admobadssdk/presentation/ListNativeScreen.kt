@@ -25,7 +25,7 @@ fun ListNativeScreen() {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
-        AppBar(title = stringResource(R.string.showing_interstitial_ad))
+        AppBar(title = stringResource(R.string.showing_lv_native_ad))
 
         NativeAdList(
             items = items,
