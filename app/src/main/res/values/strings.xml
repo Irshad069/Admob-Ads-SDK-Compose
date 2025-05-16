@@ -8,7 +8,6 @@
     <string name="show_reward_ad">Show Reward Ad</string>
     <string name="show_reward_interstitial_ad">Show Reward Interstitial Ad</string>
     <string name="show_native_ad">Show Native Ad</string>
-    <string name="show_recycler_naive_banner_ad">Show Recycler Native Ad</string>
     <string name="show_collapsible_banner_ad">Show Collapsible Banner</string>
     <string name="show_lv_native_ad">Show LV Native</string>
 
@@ -22,5 +21,6 @@
     <string name="showing_native_ad">Showing Native Ad</string>
     <string name="showing_reward_interstitial_ad">Showing Reward Interstitial Ad</string>
     <string name="showing_reward_ad">Showing Reward Ad</string>
+    <string name="showing_lv_native_ad">Showing LV Native Ad</string>
 
 </resources>

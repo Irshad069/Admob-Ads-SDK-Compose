@@ -29,4 +29,7 @@ sealed class Screen {
     @Serializable
     data object NativeAdDisplay : Screen()
 
+    @Serializable
+    data object LVNativeAdDisplay : Screen()
+
 }
