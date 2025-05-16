@@ -1,13 +1,52 @@
 package com.example.sdkads.nativead
 
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.example.sdkads.extension.toBitmap
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
+
+/**
+ * Created by Irshad khan
+ * Date: 15/05/2025$
+ */
+
+/**
+ * A Jetpack Compose Composable that displays a medium-sized Google Native Ad
+ * using the [NativeAdView] inside a Compose UI via [AndroidView].
+ *
+ * This layout includes:
+ * - Icon (ImageView)
+ * - Headline (TextView)
+ * - Advertiser (TextView)
+ * - Body (TextView)
+ * - Call-to-action button (Button)
+ *
+ * Layout structure:
+ * - Horizontal layout with:
+ *    - Icon on the left
+ *    - Vertical stack of texts and CTA on the right
+ *
+ * @param nativeAd The loaded [NativeAd] object provided by AdMob containing all ad content.
+ * @param modifier Optional [Modifier] for layout customization in Jetpack Compose.
+ *
+ * Example usage:
+ * ```
+ * MediumNativeAdView(
+ *     nativeAd = myNativeAd,
+ *     modifier = Modifier
+ *         .fillMaxWidth()
+ *         .padding(8.dp)
+ * )
+ * ```
+ *
+ * Note: This should be used only after the [NativeAd] is loaded. Always manage ad lifecycle properly to avoid memory leaks.
+ */
 
 @Composable
 fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
@@ -15,6 +54,7 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
 
     AndroidView(
         factory = {
+            // Root view provided by AdMob to hold ad assets
             val adView = NativeAdView(context)
 
             // Icon ImageView
@@ -26,7 +66,7 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 }
             }
 
-            // Headline TextView
+            // Headline TextView (required)
             val headlineView = TextView(context).apply {
                 id = View.generateViewId()
                 text = nativeAd.headline
@@ -34,7 +74,7 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 setTextColor(android.graphics.Color.BLACK)
             }
 
-            // Advertiser TextView
+            // Advertiser TextView (optional)
             val advertiserView = TextView(context).apply {
                 id = View.generateViewId()
                 text = nativeAd.advertiser
@@ -42,7 +82,7 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 setTextColor(android.graphics.Color.DKGRAY)
             }
 
-            // Body TextView
+            // Body TextView (optional)
             val bodyView = TextView(context).apply {
                 id = View.generateViewId()
                 text = nativeAd.body
@@ -50,13 +90,13 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 setTextColor(android.graphics.Color.DKGRAY)
             }
 
-            // Call to Action Button
+            // Call to Action Button (required if available)
             val callToActionView = Button(context).apply {
                 id = View.generateViewId()
                 text = nativeAd.callToAction
             }
 
-            // Vertical LinearLayout container
+            // Vertical layout for textual content and button
             val verticalLayout = LinearLayout(context).apply {
                 orientation = LinearLayout.VERTICAL
                 setPadding(16, 16, 16, 16)
@@ -68,7 +108,7 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 addView(callToActionView)
             }
 
-            // Horizontal LinearLayout container for icon + texts
+            // Horizontal layout with icon and content
             val horizontalLayout = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 addView(iconView)
@@ -78,17 +118,17 @@ fun MediumNativeAdView(nativeAd: NativeAd, modifier: Modifier = Modifier) {
                 ))
             }
 
-            // Add horizontal layout to NativeAdView
+            // Add the entire layout to the ad view
             adView.addView(horizontalLayout)
 
-            // Set required views for NativeAdView
+            // Register ad views with NativeAdView for tracking
             adView.headlineView = headlineView
             adView.iconView = iconView
             adView.advertiserView = advertiserView
             adView.bodyView = bodyView
             adView.callToActionView = callToActionView
 
-            // Bind native ad
+            // Bind the ad data to the view (must be last)
             adView.setNativeAd(nativeAd)
 
             adView

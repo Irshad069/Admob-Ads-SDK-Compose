@@ -15,7 +15,6 @@ import com.example.admobadssdk.presentation.NativeAdScreen
 import com.example.admobadssdk.presentation.RewardInterstitialScreen
 import com.example.admobadssdk.presentation.RewardScreen
 
-
 @Composable
 fun AppNavigation() {
 

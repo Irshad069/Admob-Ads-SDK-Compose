@@ -1,6 +1,5 @@
 package com.example.admobadssdk.presentation
 
-
 import android.app.Activity
 import android.util.Log
 import androidx.compose.foundation.layout.*

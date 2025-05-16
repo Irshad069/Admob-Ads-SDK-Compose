@@ -10,6 +10,16 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
+/**
+ * Created by Irshad khan
+ * Date: 15/05/2025$
+ */
+
+/**
+ * A helper object for managing Rewarded Ads using Google AdMob.
+ * Handles ad loading, displaying, and lifecycle management.
+ */
+
 object RewardedAdHelper {
     // The RewardedAd instance for displaying rewarded ads.
     private var rewardedAd: RewardedAd? = null

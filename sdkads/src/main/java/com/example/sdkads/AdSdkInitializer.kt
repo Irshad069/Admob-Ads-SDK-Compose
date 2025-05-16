@@ -1,4 +1,5 @@
 package com.example.sdkads
+
 import android.app.Activity
 import android.app.Application
 import android.util.Log
@@ -9,12 +10,44 @@ import com.example.sdkads.interstitial.InterstitialHelper
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 
+/**
+ * Created by Irshad Khan
+ * Date: 15/05/2025
+ *
+ * A singleton object responsible for initializing and managing the SDK Ads system.
+ * It handles:
+ * - Google Mobile Ads SDK initialization
+ * - Ad unit configuration (banner, interstitial, native, etc.)
+ * - App Open ad setup
+ * - Interstitial ad preloading
+ * - Consent form handling (via ConsentManager)
+ */
+
 object AdSdkInitializer {
 
+    // Manages App Open ads and excluded activity logic
     private var appOpenAdHelper: AppOpenAdHelper? = null
 
+    // Prevents multiple loading attempts of interstitials
     private var isInterstitialLoaded = false
 
+    /**
+     * Initializes the Google Mobile Ads SDK, sets ad unit IDs, configures test devices, and
+     * prepares interstitial and App Open ads.
+     *
+     * @param application The application instance required by MobileAds.
+     * @param isDebug Flag to indicate if the app is in debug mode.
+     * @param testDeviceIds A list of test device IDs used to show test ads.
+     * @param bannerId AdMob banner ad unit ID.
+     * @param appOpenAd AdMob App Open ad unit ID.
+     * @param interstitialAd AdMob interstitial ad unit ID.
+     * @param adaptiveBannerAd AdMob adaptive banner ad unit ID.
+     * @param rewardInterstitialAd AdMob rewarded interstitial ad unit ID.
+     * @param rewardAd AdMob rewarded ad unit ID.
+     * @param nativeAd AdMob native ad unit ID.
+     * @param collapsibleBannerAd AdMob collapsible banner ad unit ID.
+     * @param excludedActivities List of activity class names to exclude from showing App Open ads.
+     */
     fun initialize(
         application: Application,
         isDebug: Boolean,
@@ -36,6 +69,7 @@ object AdSdkInitializer {
                 .build()
         )
 
+        // Set all ad unit IDs to AdsConfig (shared config holder)
         AdsConfig.BANNER_ID = bannerId
         AdsConfig.APP_OPEN_ID = appOpenAd
         AdsConfig.IS_DEBUG = isDebug
@@ -63,6 +97,15 @@ object AdSdkInitializer {
         appOpenAdHelper = AppOpenAdHelper(application, excludedActivities)
     }
 
+    /**
+     * Requests user consent using Google’s Consent SDK and invokes a callback with the result.
+     * Must be called before showing ads in GDPR regions.
+     *
+     * @param activity The current activity context required to show consent form.
+     * @param onConsentResult Callback to return whether user has granted consent:
+     * - `true` = Consent granted, show ads.
+     * - `false` = Consent not granted, restrict ads.
+     */
     fun handleConsent(activity: Activity, onConsentResult: (Boolean) -> Unit) {
         ConsentManager.requestConsent(activity) { consentGiven ->
             onConsentResult(consentGiven)

@@ -9,6 +9,11 @@ import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.FormError
 import com.google.android.ump.UserMessagingPlatform
 
+/**
+ * Created by Irshad khan
+ * Date: 15/05/2025$
+ */
+
 object ConsentManager {
 
     /**

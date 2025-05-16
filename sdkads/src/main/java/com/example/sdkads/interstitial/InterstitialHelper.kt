@@ -11,6 +11,16 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
+/**
+ * Created by Irshad khan
+ * Date: 15/05/2024$
+ */
+
+/**
+ * A helper object for managing interstitial ads using Google AdMob.
+ * Handles ad loading, displaying, and lifecycle management.
+ */
+
 object InterstitialHelper {
 
     // The InterstitialAd instance for displaying full-screen ads.

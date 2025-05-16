@@ -28,6 +28,7 @@ import com.google.android.gms.ads.AdView
  *
  * @param modifier Modifier to style the AdView composable
  */
+
 @Composable
 fun AdaptiveBannerAdView(modifier: Modifier = Modifier) {
     val context = LocalContext.current

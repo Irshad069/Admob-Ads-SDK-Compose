@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,10 +35,15 @@ fun HomeScreen(
         Button(
             onClick = { onBannerClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.showing_banner_ad))
+            Text(
+                text = stringResource(R.string.showing_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -47,10 +51,15 @@ fun HomeScreen(
         Button(
             onClick = { onAdaptiveBannerClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.showing_adaptive_banner_ad) )
+            Text(
+                text = stringResource(R.string.showing_adaptive_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -60,10 +69,15 @@ fun HomeScreen(
                 onInterstitialBannerClick()
             },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.show_interstitial_banner_ad) )
+            Text(
+                text = stringResource(R.string.show_interstitial_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -71,20 +85,30 @@ fun HomeScreen(
         Button(
             onClick = { onRewardBannerClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text =  stringResource(R.string.show_reward_banner_ad) )
+            Text(
+                text = stringResource(R.string.show_reward_banner_ad)
+            )
         }
         Spacer(modifier = Modifier.height(12.dp))
 
         Button(
             onClick = { onRewardInterstitialBannerClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.show_reward_interstitial_banner_ad))
+            Text(
+                text = stringResource(R.string.show_reward_interstitial_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -92,10 +116,15 @@ fun HomeScreen(
         Button(
             onClick = { },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text =stringResource(R.string.show_native_banner_ad))
+            Text(
+                text = stringResource(R.string.show_native_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -103,10 +132,15 @@ fun HomeScreen(
         Button(
             onClick = { },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text =stringResource(R.string.show_recycler_naive_banner_ad))
+            Text(
+                text = stringResource(R.string.show_recycler_naive_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -114,18 +148,26 @@ fun HomeScreen(
         Button(
             onClick = { onCollapsibleBannerClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.showing_collapsible_banner_ad))
+            Text(
+                text = stringResource(R.string.showing_collapsible_banner_ad)
+            )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Button(
-            onClick = { onNativeAdClick()},
+            onClick = { onNativeAdClick() },
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 6.dp)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 6.dp
+                )
                 .fillMaxWidth()
         ) {
             Text(text = "Show Native Ad")

@@ -16,6 +16,24 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import java.util.Date
 
+/**
+ * Created by Irshad khan
+ * Date: 15/05/2025$
+ */
+
+/**
+ * AppOpenAdHelper is a lifecycle-aware utility class that manages the loading and display of App Open Ads
+ * in an Android application using the Google Mobile Ads SDK.
+ *
+ * It handles the following responsibilities:
+ * - Automatically loads App Open Ads when appropriate.
+ * - Displays the ad when the app enters the foreground (excluding specific screens).
+ * - Avoids showing ads during undesired moments (e.g., splash or login activities).
+ *
+ * @param application The Application instance used for registering lifecycle observers and callbacks.
+ * @param excludedActivities A list of activity class names (canonical names) in which the App Open Ad should not be shown.
+ */
+
 class AppOpenAdHelper  (private val application: Application,
 private val excludedActivities: List<String> = emptyList()
 ) : DefaultLifecycleObserver, Application.ActivityLifecycleCallbacks {
@@ -48,6 +66,7 @@ private val excludedActivities: List<String> = emptyList()
     init {
         // Register as a lifecycle observer to detect when the app enters the foreground.
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+        // Register for tracking current activity reference.
         application.registerActivityLifecycleCallbacks(this)
     }
 
