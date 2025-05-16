@@ -17,7 +17,7 @@ import com.google.android.gms.ads.appopen.AppOpenAd
 import java.util.Date
 
 /**
- * Created by Irshad khan
+ * Created by Iqra Maqbool
  * Date: 15/05/2025$
  */
 

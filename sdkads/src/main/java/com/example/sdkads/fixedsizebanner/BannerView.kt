@@ -16,7 +16,7 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
 /**
- * Created by Irshad khan
+ * Created by Iqra Maqbool
  * Date: 15/05/2025$
  */
 
