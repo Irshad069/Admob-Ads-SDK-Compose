@@ -79,6 +79,7 @@ object AdSdkInitializer {
         AdsConfig.REWARDED_AD_ID = rewardAd
         AdsConfig.NATIVE_AD_ID = nativeAd
         AdsConfig.COLLAPSIBLE_BANNER_ID = collapsibleBannerAd
+        ConsentManager.TEST_DEVICE_HASHED_ID = testDeviceIds.toString()
 
         // Initialize Google Mobile Ads SDK
         MobileAds.initialize(application) {

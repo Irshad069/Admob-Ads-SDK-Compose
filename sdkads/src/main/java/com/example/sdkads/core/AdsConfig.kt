@@ -54,14 +54,4 @@ object AdsConfig {
      * Is Debug check for showing consent
      */
     var IS_DEBUG:Boolean = false
-
-    /**
-     * default value for adType large
-     */
-    const val LARGE: String = "large"
-
-    /**
-     * default value for adType medium
-     */
-    const val MEDIUM: String = "medium"
 }

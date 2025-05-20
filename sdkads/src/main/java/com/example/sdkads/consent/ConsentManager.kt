@@ -19,8 +19,7 @@ object ConsentManager {
     /**
      * Test device hashed ID used for debugging purposes to simulate consent scenarios.
      */
-    const val TEST_DEVICE_HASHED_ID =
-        "007DEB0576C579A6A35DA74A5E3C5186" // use your Test device hashed ID
+    var TEST_DEVICE_HASHED_ID = "" // use your Test device hashed ID
 
     /**
      * Requests user consent for showing ads.
