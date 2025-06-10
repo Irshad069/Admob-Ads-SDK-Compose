@@ -50,12 +50,13 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.foundation.layout.android)
     implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.appcompat)
 
     // Lifecycle for Compose
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Google Mobile Ads SDK
-    implementation(libs.play.services.ads)
+    api(libs.play.services.ads)
 
     // UMP (User Messaging Platform)
     implementation(libs.user.messaging.platform)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AdmobAdsSDK</string>
+    <string name="app_name">SDK Admob Ads Compose</string>
 
 <!--    button-->
     <string name="show_banner_ad">Show Banner Ad</string>

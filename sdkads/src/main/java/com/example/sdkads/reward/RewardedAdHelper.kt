@@ -1,6 +1,7 @@
 package com.example.sdkads.reward
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import com.example.sdkads.core.AdsConfig
 import com.google.android.gms.ads.AdError
@@ -36,7 +37,7 @@ object RewardedAdHelper {
      *
      * @param activity The activity context for loading the ad.
      */
-    private fun loadAd(activity: Activity) {
+    private fun loadAd(context: Context) {
         val adUnitId = AdsConfig.REWARDED_AD_ID
         if (adUnitId.isEmpty()) {
             Log.e(TAG, "Rewarded Ad Unit ID is not configured.")
@@ -52,7 +53,7 @@ object RewardedAdHelper {
 
         // Load the Rewarded Ad with a callback for success or failure.
         RewardedAd.load(
-            activity,
+            context,
             adUnitId,
             adRequest,
             object : RewardedAdLoadCallback() {
@@ -68,6 +69,10 @@ object RewardedAdHelper {
                 }
             }
         )
+    }
+
+    fun initLoadAd(context: Context) {
+        loadAd(context)
     }
 
     /**

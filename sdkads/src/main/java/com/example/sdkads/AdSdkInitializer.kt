@@ -7,6 +7,8 @@ import com.example.sdkads.appopen.AppOpenAdHelper
 import com.example.sdkads.consent.ConsentManager
 import com.example.sdkads.core.AdsConfig
 import com.example.sdkads.interstitial.InterstitialHelper
+import com.example.sdkads.reward.RewardedAdHelper
+import com.example.sdkads.rewardinterstitial.RewardedInterstitialHelper
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 
@@ -30,6 +32,8 @@ object AdSdkInitializer {
 
     // Prevents multiple loading attempts of interstitials
     private var isInterstitialLoaded = false
+    private var isRewardInterstitialLoaded = false
+    private var isRewardLoaded = false
 
     /**
      * Initializes the Google Mobile Ads SDK, sets ad unit IDs, configures test devices, and
@@ -85,17 +89,44 @@ object AdSdkInitializer {
         MobileAds.initialize(application) {
             // Once initialized, load interstitial ads if not already loaded
 
-            if (!isInterstitialLoaded) {
-                isInterstitialLoaded = true
-                // Load the ad after MobileAds initialized
-                Log.e("TAG", "initialize: before load" )
+            // Once initialized, load interstitial ads if not already loaded
+
+            loadAdOnce(::isInterstitialLoaded, { isInterstitialLoaded = true }) {
+                Log.d("TAG", "Loading Interstitial Ad...")
                 InterstitialHelper.initLoadAd(application)
-                Log.e("TAG", "initialize: after load")
+            }
+            // Once initialized, load reward interstitial ads if not already loaded
+            loadAdOnce(::isRewardInterstitialLoaded, { isRewardInterstitialLoaded = true }) {
+                Log.d("TAG", "Loading Rewarded Interstitial Ad...")
+                RewardedInterstitialHelper.initLoadAd(application)
+            }
+            // Once initialized, load reward ads if not already loaded
+            loadAdOnce(::isRewardLoaded, { isRewardLoaded = true }) {
+                Log.d("TAG", "Loading Rewarded Ad...")
+                RewardedAdHelper.initLoadAd(application)
             }
         }
 
         // Setup App Open ad handler with excluded activities
         appOpenAdHelper = AppOpenAdHelper(application, excludedActivities)
+    }
+
+    /**
+     * Utility function to load an ad only once based on a flag.
+     *
+     * @param checkFlag Lambda returning a Boolean flag.
+     * @param setFlag Lambda to update the flag once loading starts.
+     * @param onLoad Lambda to call when loading should occur.
+     */
+    private inline fun loadAdOnce(
+        checkFlag: () -> Boolean,
+        setFlag: () -> Unit,
+        onLoad: () -> Unit
+    ) {
+        if (!checkFlag()) {
+            setFlag()
+            onLoad()
+        }
     }
 
     /**

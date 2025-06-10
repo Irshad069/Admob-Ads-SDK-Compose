@@ -1,6 +1,7 @@
 package com.example.sdkads.rewardinterstitial
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import com.example.sdkads.core.AdsConfig
 import com.google.android.gms.ads.AdError
@@ -36,7 +37,7 @@ object RewardedInterstitialHelper {
      *
      * @param activity The activity context for loading the ad.
      */
-    private fun loadAd(activity: Activity) {
+    private fun loadAd(context: Context) {
         val adUnitId = AdsConfig.REWARD_INTERSTITIAL_AD_ID
         if (adUnitId.isEmpty()) {
             Log.e(TAG, "Rewarded Interstitial Ad Unit ID is not configured.")
@@ -52,7 +53,7 @@ object RewardedInterstitialHelper {
 
         // Load the Rewarded Interstitial Ad with a callback for success or failure.
         RewardedInterstitialAd.load(
-            activity,
+            context,
             adUnitId,
             adRequest,
             object : RewardedInterstitialAdLoadCallback() {
@@ -68,6 +69,10 @@ object RewardedInterstitialHelper {
                 }
             }
         )
+    }
+
+    fun initLoadAd(context: Context) {
+        loadAd(context)
     }
 
     /**
